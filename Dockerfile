@@ -7,14 +7,14 @@ FROM ubuntu:16.04
 RUN apt-get update \
     && apt-get install -y wget vim \
     && wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/deb/ubuntu/scylla-1.3-xenial.list \
-    && apt-get update && apt-get install -y scylla-server scylla-jmx scylla-tools
+    && apt-get update && apt-get install -y scylla-server scylla-jmx scylla-tools --allow-unauthenticated
 
 # Setting up Scylla
 USER root
 COPY scylla /scylla
 RUN  chown -R scylla:scylla /etc/scylla \
     && chown -R scylla:scylla /etc/scylla.d \
-    && chown -R scylla:scylla /start-scylla
+    && chown -R scylla:scylla /scylla
 
 # Basic setting for Scylla
 USER scylla
