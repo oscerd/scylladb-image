@@ -21,7 +21,7 @@ USER scylla
 EXPOSE 10000 9042 9160 7000 7001
 VOLUME /var/lib/scylla
 
-# Run Scyllas
+# Run Scylla
 CMD chmod +x scylla && /scylla
 
 
